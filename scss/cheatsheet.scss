@@ -2,3 +2,43 @@
 $black: #000000;
 $white: #ffffff;
 
+/* Mobile Breakpoints for Font-Size */
+$breakpoints: (
+	large : 980px,
+	medium: 767px,
+	between: 600px,
+	small : 479px,
+	verysmall: 400px
+);
+
+/* Function to generate Font-Sizes */
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			font-size: $fs-font-size;
+		}
+		@else {
+			@if map-has-key($fs-breakpoints, $fs-breakpoint) {
+				$fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+			}
+			@media screen and (max-width: $fs-breakpoint) {
+				font-size: $fs-font-size;
+			}
+		}
+	}
+}
+
+/* font-sizes */
+$example-font-sizes: (
+	null: 30px,
+	large: 23px,
+	medium: 19px,
+	between: 17px,
+	small: 16px
+);
+
+/* Example for font-size generator
+.example {
+    @include font-size($example-font-sizes);
+}
+*/
