@@ -1,8 +1,10 @@
-/* Colors */
+
+
+//Colors
 $black: #000000;
 $white: #ffffff;
 
-/* Mobile Breakpoints for Font-Size */
+//Mobile Breakpoints for Font-Size
 $breakpoints: (
 	large : 980px,
 	medium: 767px,
@@ -11,7 +13,7 @@ $breakpoints: (
 	verysmall: 400px
 );
 
-/* Function to generate Font-Sizes */
+// Function to generate Font-Sizes
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
 	@each $fs-breakpoint, $fs-font-size in $fs-map {
 		@if $fs-breakpoint == null {
@@ -28,7 +30,7 @@ $breakpoints: (
 	}
 }
 
-/* font-sizes */
+// font-sizes
 $example-font-sizes: (
 	null: 30px,
 	large: 23px,
